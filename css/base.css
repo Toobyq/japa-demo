@@ -1,0 +1,132 @@
+/* Japa Oneightwo — base comum do site e do painel.
+   Identidade: fanzine punk + caderno de desenho. Fundo de tinta preta, traço de caneta, stencil,
+   fita adesiva e respingos de aquarela. Cada região da rota tem a sua cor. */
+@font-face { font-family: 'Marker'; src: url(../fontes/permanent-marker.woff2) format('woff2'); font-display: swap; }
+@font-face { font-family: 'Stencil'; src: url(../fontes/big-shoulders-stencil.woff2) format('woff2'); font-weight: 400 900; font-display: swap; }
+@font-face { font-family: 'Grotesk'; src: url(../fontes/space-grotesk.woff2) format('woff2'); font-weight: 300 700; font-display: swap; }
+
+:root {
+  --fundo: #0b0a0c; --fundo2: #121014; --cartao: #18161a; --cartao2: #1f1c22; --linha: #2c2830; --linha2: #3a353f;
+  --texto: #f2ede4; --suave: #a59e96; --apagado: #6f6972;
+  --papel: #efe7d6; --papel2: #e4dac4; --tinta: #121013;
+  --verm: #ff4436; --mag: #ff3ea5; --ciano: #20d4ea; --acido: #d4ff3b; --ouro: #ffb02e; --musgo: #8fb35a;
+  --serra: #8fb35a; --poa: #ffb02e; --litoral: #20d4ea; --folga: #6f6972; --evento: #ff3ea5;
+  --ok: #8fd65a; --alerta: #ffb02e; --perigo: #ff4436;
+  --f-mao: 'Marker', 'Comic Sans MS', cursive; --f-sten: 'Stencil', 'Impact', sans-serif; --f-txt: 'Grotesk', system-ui, -apple-system, sans-serif;
+  --raio: 14px; --sombra: 0 18px 50px -20px rgba(0,0,0,.8);
+  --grao: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  color-scheme: dark;
+}
+:root[data-tema="claro"] {
+  --fundo: #efe7d6; --fundo2: #e7decb; --cartao: #f8f3e8; --cartao2: #fffaf0; --linha: #d6cbb4; --linha2: #c4b79c;
+  --texto: #18151a; --suave: #5f5850; --apagado: #8d857a; --serra: #5e8a2c; --poa: #d98500; --litoral: #0a9fb3;
+  --acido: #6f9e00; --ciano: #0a9fb3; --ouro: #c97800; --musgo: #5e8a2c; --ok: #3f8f1f;
+  --grao: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--fundo); color: var(--texto); font: 400 16px/1.5 var(--f-txt); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+body::before { content: ''; position: fixed; inset: 0; background: var(--grao); pointer-events: none; z-index: 1000; mix-blend-mode: normal; }
+img, svg { display: block; max-width: 100%; }
+a { color: inherit; }
+button, input, select, textarea { font: inherit; color: inherit; }
+button { cursor: pointer; background: none; border: 0; padding: 0; }
+::selection { background: var(--mag); color: #fff; }
+:focus-visible { outline: 2px dashed var(--acido); outline-offset: 3px; }
+
+.mao { font-family: var(--f-mao); font-weight: 400; letter-spacing: .01em; }
+.sten { font-family: var(--f-sten); font-weight: 800; letter-spacing: .06em; text-transform: uppercase; }
+.suave { color: var(--suave); }
+.num { font-family: var(--f-sten); font-weight: 800; font-variant-numeric: tabular-nums; letter-spacing: .02em; }
+.ic { width: 1.15em; height: 1.15em; flex: none; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+/* botões */
+.bt { display: inline-flex; align-items: center; justify-content: center; gap: .5em; min-height: 44px; padding: .65em 1.15em; border-radius: 999px;
+  font: 800 .95rem/1 var(--f-sten); letter-spacing: .08em; text-transform: uppercase; background: var(--cartao2); border: 1.5px solid var(--linha2);
+  transition: transform .15s, background .2s, border-color .2s, box-shadow .2s; position: relative; text-decoration: none; white-space: nowrap; }
+.bt:hover { transform: translateY(-2px) rotate(-.6deg); border-color: var(--texto); }
+.bt:active { transform: translateY(1px) scale(.98); }
+.bt.forte { background: var(--texto); color: var(--fundo); border-color: var(--texto); box-shadow: 4px 4px 0 var(--mag); }
+.bt.forte:hover { box-shadow: 6px 6px 0 var(--ciano); }
+.bt.tinta { background: var(--mag); color: #fff; border-color: var(--mag); box-shadow: 4px 4px 0 var(--texto); }
+.bt.leve { background: transparent; }
+.bt.peq { min-height: 34px; padding: .45em .85em; font-size: .8rem; }
+.bt[disabled] { opacity: .4; pointer-events: none; }
+
+/* fita adesiva e etiquetas */
+.fita { position: absolute; width: 74px; height: 22px; background: rgba(240,230,190,.55); backdrop-filter: blur(1px); box-shadow: 0 1px 2px rgba(0,0,0,.25);
+  clip-path: polygon(3% 0, 97% 4%, 100% 50%, 96% 100%, 2% 96%, 0 50%); }
+.etq { display: inline-flex; align-items: center; gap: .35em; padding: .2em .6em; border-radius: 999px; font: 800 .72rem/1.4 var(--f-sten); letter-spacing: .1em; text-transform: uppercase;
+  border: 1.5px solid currentColor; white-space: nowrap; }
+.r-serra { --rc: var(--serra); } .r-poa { --rc: var(--poa); } .r-litoral { --rc: var(--litoral); } .r-folga { --rc: var(--folga); } .r-evento { --rc: var(--evento); }
+.etq.reg { color: var(--rc); }
+
+/* campos */
+.campo { display: grid; gap: .35rem; }
+.campo > span { font: 800 .75rem/1 var(--f-sten); letter-spacing: .12em; text-transform: uppercase; color: var(--suave); }
+input, select, textarea { width: 100%; background: var(--fundo2); border: 1.5px solid var(--linha2); border-radius: 10px; padding: .7em .85em; outline: 0; transition: border-color .2s, box-shadow .2s; }
+input:focus, select:focus, textarea:focus { border-color: var(--acido); box-shadow: 0 0 0 3px color-mix(in srgb, var(--acido) 25%, transparent); }
+textarea { resize: vertical; min-height: 90px; }
+
+/* toast */
+#toasts { position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%); display: grid; gap: 8px; z-index: 900; pointer-events: none; width: min(92vw, 420px); }
+.toast { background: var(--texto); color: var(--fundo); padding: .8em 1.1em; border-radius: 12px; font-weight: 600; box-shadow: 5px 5px 0 var(--mag);
+  animation: toastIn .35s cubic-bezier(.2,1.4,.4,1) both; pointer-events: auto; display: flex; gap: .6em; align-items: center; }
+.toast.sai { animation: toastOut .3s ease-in both; }
+@keyframes toastIn { from { transform: translateY(30px) rotate(-4deg) scale(.9); opacity: 0; } }
+@keyframes toastOut { to { transform: translateY(20px) scale(.9); opacity: 0; } }
+
+/* camada de efeitos (respingos) */
+#fx { position: fixed; inset: 0; pointer-events: none; z-index: 950; }
+
+/* carimbo de stencil */
+.carimbo { position: fixed; inset: 0; display: grid; place-items: center; pointer-events: none; z-index: 960; }
+.carimbo b { font: 900 clamp(2.4rem, 9vw, 6rem)/.9 var(--f-sten); letter-spacing: .08em; color: var(--cor, var(--verm)); border: .12em solid currentColor; padding: .12em .3em; border-radius: .08em;
+  transform: rotate(-9deg); text-transform: uppercase; text-align: center; mix-blend-mode: screen; animation: carimbo 1.4s cubic-bezier(.2,1.6,.4,1) both;
+  -webkit-mask: var(--grao-mask, none); }
+:root[data-tema="claro"] .carimbo b { mix-blend-mode: multiply; }
+.carimbo small { display: block; font-size: .32em; letter-spacing: .2em; }
+@keyframes carimbo { 0% { transform: rotate(-20deg) scale(2.6); opacity: 0; } 18% { transform: rotate(-9deg) scale(.94); opacity: 1; } 26% { transform: rotate(-9deg) scale(1); } 80% { opacity: 1; } 100% { opacity: 0; transform: rotate(-9deg) scale(1.02); } }
+.treme { animation: treme .32s linear; }
+@keyframes treme { 20% { transform: translate(-4px, 2px); } 40% { transform: translate(3px, -3px); } 60% { transform: translate(-2px, 1px); } 80% { transform: translate(2px, 1px); } }
+
+/* traço que se desenha (logo, caracol) */
+.desenha path, .desenha circle, .desenha line, .desenha polyline { stroke-dasharray: 1; stroke-dashoffset: 1; animation: traco var(--dur, 1.2s) cubic-bezier(.6,.05,.3,1) forwards; animation-delay: var(--atraso, 0s); }
+@keyframes traco { to { stroke-dashoffset: 0; } }
+
+/* caracol andando */
+.caracol-anda { animation: anda 1.6s ease-in-out infinite; transform-origin: 50% 100%; }
+@keyframes anda { 0%, 100% { transform: scaleX(1); } 50% { transform: scaleX(1.06) translateY(-1px); } }
+.antena { animation: antena 2.4s ease-in-out infinite; transform-origin: 0 100%; transform-box: fill-box; }
+@keyframes antena { 0%, 100% { transform: rotate(0); } 50% { transform: rotate(-8deg); } }
+
+/* modal */
+.modal { position: fixed; inset: 0; z-index: 800; display: grid; place-items: center; padding: 16px; background: rgba(5,4,6,.72); backdrop-filter: blur(6px); animation: fadeIn .25s both; }
+.modal > .caixa { width: min(100%, 560px); max-height: calc(100dvh - 32px); overflow: auto; background: var(--cartao); border: 1.5px solid var(--linha2); border-radius: 18px; padding: 22px;
+  box-shadow: var(--sombra), 8px 8px 0 color-mix(in srgb, var(--mag) 70%, transparent); animation: modalIn .4s cubic-bezier(.2,1.3,.4,1) both; position: relative; }
+.modal.larga > .caixa { width: min(100%, 860px); }
+.modal h2 { font: 400 1.7rem/1.1 var(--f-mao); margin: 0 0 .6rem; padding-right: 40px; }
+.modal .fechar { position: absolute; top: 12px; right: 12px; width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; border: 1.5px solid var(--linha2); background: var(--cartao2); }
+.modal .fechar:hover { transform: rotate(90deg); transition: transform .25s; }
+.modal.sai { animation: fadeOut .2s both; }
+@keyframes fadeIn { from { opacity: 0; } } @keyframes fadeOut { to { opacity: 0; } }
+@keyframes modalIn { from { transform: translateY(40px) rotate(2deg) scale(.95); opacity: 0; } }
+
+/* mapa do corpo */
+.corpo { width: 100%; height: auto; }
+.corpo .zona { fill: var(--cartao2); stroke: var(--linha2); stroke-width: 1.5; cursor: pointer; transition: fill .25s, stroke .25s, transform .25s; transform-box: fill-box; transform-origin: center; }
+.corpo .zona:hover { fill: color-mix(in srgb, var(--mag) 30%, var(--cartao2)); stroke: var(--mag); }
+.corpo .zona.sel { fill: var(--mag); stroke: var(--texto); animation: zonaPop .45s cubic-bezier(.2,1.6,.4,1); }
+.corpo .zona.tem { fill: color-mix(in srgb, var(--ciano) 45%, var(--cartao2)); stroke: var(--ciano); }
+.corpo.ler .zona { cursor: default; }
+.corpo .ponto { fill: var(--acido); stroke: var(--fundo); stroke-width: 1.5; }
+@keyframes zonaPop { 0% { transform: scale(.85); } 60% { transform: scale(1.08); } }
+
+/* flash (desenho) */
+.flash-svg { width: 100%; height: auto; overflow: visible; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}

@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#0b0a0c">
+<title>Japa Oneightwo · O sistema</title>
+<meta name="description" content="Demonstração do site e do painel do Japa Oneightwo, tatuador a domicílio.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🐌%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="css/base.css">
+<style>
+main { overflow-x: clip; }
+.ap-faixa { background: var(--acido); color: #111; text-align: center; font: 800 .8rem/1.3 var(--f-sten); letter-spacing: .12em; text-transform: uppercase; padding: 8px 16px; }
+.capa { position: relative; min-height: 100svh; display: grid; place-items: center; text-align: center; padding: 48px 16px 80px; isolation: isolate; overflow: hidden; }
+.capa .aq { position: absolute; inset: -10%; z-index: -1; filter: blur(70px) saturate(1.3); opacity: .5; }
+.capa .aq i { position: absolute; border-radius: 50%; mix-blend-mode: screen; animation: deriva 22s ease-in-out infinite alternate; }
+.capa .aq i:nth-child(1) { width: 44vmax; height: 40vmax; left: 2%; top: 8%; background: radial-gradient(circle, var(--mag), transparent 65%); }
+.capa .aq i:nth-child(2) { width: 40vmax; height: 44vmax; right: 0; top: 30%; background: radial-gradient(circle, var(--ciano), transparent 62%); animation-delay: -8s; }
+.capa .aq i:nth-child(3) { width: 28vmax; height: 28vmax; left: 38%; bottom: -6%; background: radial-gradient(circle, var(--acido), transparent 62%); animation-delay: -13s; }
+@keyframes deriva { 50% { transform: translate(6vw, -4vh) scale(1.15) rotate(25deg); } 100% { transform: translate(-5vw, 5vh) scale(.92) rotate(-15deg); } }
+.capa-in { max-width: 800px; display: grid; justify-items: center; gap: 14px; }
+.capa-logo { width: min(210px, 48vw); filter: drop-shadow(6px 6px 0 color-mix(in srgb, var(--mag) 80%, transparent)); }
+.capa-logo.liga { animation: vibra .05s linear infinite; } @keyframes vibra { 50% { transform: translate(.7px, -.7px); } }
+.sobre { margin: 0; font: 800 .85rem/1 var(--f-sten); letter-spacing: .26em; text-transform: uppercase; color: var(--mag); }
+.capa h1 { font: 400 clamp(3.2rem, 11vw, 7.6rem)/.85 var(--f-mao); margin: 0; }
+.capa h1 span { display: block; font-size: .62em; color: transparent; -webkit-text-stroke: 2px var(--texto); transform: rotate(-3deg); }
+.capa .lead { font-size: clamp(1.05rem, 2.2vw, 1.3rem); color: #d6cfc4; margin: 6px 0 0; max-width: 640px; }
+.capa .lead b { font-family: var(--f-mao); font-weight: 400; color: var(--acido); }
+.acoes { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-top: 10px; }
+.rolar { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); color: var(--apagado); font: 700 .75rem/1 var(--f-sten); letter-spacing: .2em; text-transform: uppercase; animation: pula 2s infinite; }
+@keyframes pula { 50% { transform: translate(-50%, -6px); } }
+.trilha { position: absolute; left: 0; right: 0; bottom: 56px; height: 40px; pointer-events: none; }
+.trilha .anda { position: absolute; bottom: 0; width: 60px; animation: atravessa 40s linear infinite; }
+@keyframes atravessa { from { left: -80px; } to { left: 100%; } }
+
+.sec { padding: clamp(64px, 9vw, 120px) 16px; max-width: 1180px; margin: 0 auto; }
+.sec-cab { text-align: center; max-width: 700px; margin: 0 auto 44px; }
+.sec-cab h2 { font: 400 clamp(2.4rem, 6vw, 4rem)/1 var(--f-mao); margin: 8px 0 14px; }
+.sec-cab p { color: var(--suave); margin: 0; font-size: 1.05rem; }
+.kicker { margin: 0; font: 800 .82rem/1 var(--f-sten); letter-spacing: .2em; text-transform: uppercase; color: var(--mag); }
+.linha { border-top: 1.5px dashed var(--linha2); }
+
+.raizes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.raiz { padding: 26px 22px; border-radius: 18px; background: var(--cartao); border: 1.5px solid var(--linha); transform: rotate(var(--r)); transition: transform .3s; }
+.raiz:nth-child(1) { --r: -1deg; } .raiz:nth-child(2) { --r: .8deg; } .raiz:nth-child(3) { --r: -.6deg; }
+.raiz:hover { transform: rotate(0) translateY(-4px); }
+.raiz .simb { height: 70px; display: flex; align-items: center; } .raiz .simb svg { height: 64px; width: auto; }
+.raiz h3 { font: 400 1.5rem/1.1 var(--f-mao); margin: 12px 0 8px; } .raiz p { color: var(--suave); margin: 0; } .raiz b { color: var(--texto); font-weight: 600; }
+.cores { display: flex; gap: 14px; justify-content: center; margin-top: 30px; flex-wrap: wrap; }
+.cor { display: flex; align-items: center; gap: 8px; font-size: .85rem; color: var(--suave); }
+.cor i { width: 26px; height: 26px; border-radius: 50%; border: 1.5px solid #333; }
+
+.bloco { display: grid; grid-template-columns: 1.15fr .85fr; gap: clamp(24px, 5vw, 64px); align-items: center; margin-bottom: clamp(70px, 10vw, 120px); }
+.bloco.inv { grid-template-columns: .85fr 1.15fr; } .bloco.inv .txt { order: 2; }
+.txt h3 { font: 400 clamp(2rem, 4.6vw, 3.2rem)/1 var(--f-mao); margin: 8px 0 14px; }
+.txt p { color: #d6cfc4; margin: 0 0 12px; } .txt ul { margin: 0 0 18px; padding: 0; list-style: none; display: grid; gap: 8px; }
+.txt li { padding-left: 26px; position: relative; color: var(--suave); } .txt li::before { content: '✦'; position: absolute; left: 0; color: var(--acido); } .txt li b { color: var(--texto); font-weight: 600; }
+.telas { position: relative; }
+.pc { width: 100%; border-radius: 14px; border: 1.5px solid var(--linha2); box-shadow: 0 30px 80px rgba(0,0,0,.6), 10px 10px 0 color-mix(in srgb, var(--mag) 35%, transparent); display: block; }
+.fone { width: min(260px, 70vw); border-radius: 36px; border: 9px solid #1c1b1f; box-shadow: 0 30px 80px rgba(0,0,0,.6), inset 0 0 0 1px #333; display: block; margin: 0 auto; background: #000; }
+.par { display: flex; gap: 16px; justify-content: center; } .par .fone { width: min(230px, 42vw); } .par .fone:nth-child(2) { margin-top: 48px; }
+.fone-sobre { position: absolute; right: -14px; bottom: -34px; width: min(180px, 34vw); }
+.story { width: min(280px, 70vw); border-radius: 18px; box-shadow: 0 30px 80px rgba(0,0,0,.6); display: block; margin: 0 auto; transform: rotate(2deg); }
+.galeria { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.galeria figure { margin: 0; } .galeria img { width: 100%; border-radius: 12px; border: 1.5px solid var(--linha2); display: block; box-shadow: 0 16px 40px rgba(0,0,0,.5); }
+.galeria figcaption { color: var(--suave); font-size: .88rem; margin-top: 8px; text-align: center; }
+
+.testa { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; counter-reset: passo; }
+.passo { padding: 24px; border-radius: 18px; background: var(--cartao); border: 1.5px solid var(--linha); }
+.passo::before { counter-increment: passo; content: counter(passo); display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; background: var(--mag); color: #fff; font: 900 1.3rem var(--f-sten); margin-bottom: 12px; transform: rotate(-8deg); }
+.passo h3 { margin: 0 0 6px; font: 400 1.35rem/1.1 var(--f-mao); } .passo p { margin: 0 0 14px; color: var(--suave); }
+.aviso { max-width: 760px; margin: 22px auto 0; text-align: center; color: var(--suave); font-size: .92rem; }
+.falta { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; max-width: 900px; margin: 0 auto; }
+.falta div { padding: 16px 18px; border-radius: 14px; background: var(--cartao); border: 1.5px dashed var(--linha2); }
+.falta b { display: block; font: 400 1.15rem/1.2 var(--f-mao); margin-bottom: 4px; } .falta span { color: var(--suave); font-size: .92rem; }
+.qr { display: grid; grid-template-columns: auto 1fr; gap: 28px; align-items: center; max-width: 720px; margin: 0 auto; background: var(--papel); color: var(--tinta); border-radius: 20px; padding: 26px; transform: rotate(-1deg); }
+.qr img { width: 170px; height: 170px; image-rendering: pixelated; border-radius: 8px; background: #fff; padding: 8px; }
+.qr h3 { font: 400 1.8rem/1.05 var(--f-mao); margin: 0 0 8px; } .qr p { margin: 0 0 6px; color: #4a443c; } .qr code { font-size: .85rem; word-break: break-all; }
+.rodape { text-align: center; padding: 70px 16px 60px; display: grid; justify-items: center; gap: 12px; color: var(--suave); font-size: .9rem; }
+.rodape .a { width: 70px; color: var(--mag); }
+.revela { opacity: 0; transform: translateY(36px); transition: opacity .8s, transform .8s cubic-bezier(.2,1,.3,1); } .revela.vis { opacity: 1; transform: none; }
+@media (max-width: 860px) {
+  .bloco, .bloco.inv { grid-template-columns: minmax(0, 1fr); } .bloco.inv .txt { order: 0; }
+  .raizes, .testa, .galeria { grid-template-columns: minmax(0, 1fr); } .falta { grid-template-columns: minmax(0, 1fr); }
+  .fone-sobre { right: 4px; } .qr { grid-template-columns: minmax(0, 1fr); justify-items: center; text-align: center; }
+}
+</style>
+</head>
+<body>
+<div class="ap-faixa">Demonstração · clientes, valores e datas são de exemplo</div>
+<main>
+  <section class="capa">
+    <div class="aq" aria-hidden="true"><i></i><i></i><i></i></div>
+    <div class="capa-in">
+      <div class="capa-logo" id="logo"></div>
+      <p class="sobre">O sistema do caracol</p>
+      <h1>Japa<span>Oneightwo</span></h1>
+      <p class="lead">Um site e um painel feitos sob medida pra quem <b>leva o estúdio nas costas</b>: tattoo a domicílio na Serra, em Porto Alegre e no litoral de SC.</p>
+      <div class="acoes"><button class="bt tinta" id="ligar">Ligar a máquina</button><a class="bt forte" href="index.html">Abrir o site</a><a class="bt" href="painel.html">Abrir o painel</a></div>
+    </div>
+    <div class="trilha" aria-hidden="true"><div class="anda" id="caracolCapa"></div></div>
+    <span class="rolar">rola pra ver ↓</span>
+  </section>
+
+  <section class="sec">
+    <div class="sec-cab revela"><p class="kicker">De onde veio</p><h2>Feito com a tua cara</h2><p>Antes de desenhar uma linha, a gente olhou teu Instagram inteiro: os trabalhos, os rolês, a estrada. Daí saíram três raízes.</p></div>
+    <div class="raizes">
+      <div class="raiz revela"><div class="simb" id="simbCaracol"></div><h3>O caracol</h3><p>Teu emoji de assinatura virou o símbolo do sistema: <b>anda com a casa nas costas</b>, igual tu com o estúdio. Ele aparece andando pela rota, pela linha do dia e pelos passos do pedido.</p></div>
+      <div class="raiz revela"><div class="simb" id="simbA"></div><h3>O A e o punk</h3><p>Teu A com o "one" (redesenhado à mão, provisório até tu mandar o original), <b>stencil, fita adesiva e carimbo</b>. Visual de fanzine, nada de sistema genérico.</p></div>
+      <div class="raiz revela"><div class="simb" id="simbFlash"></div><h3>A aquarela</h3><p>A cor que explode nos teus trabalhos: <b>magenta, ciano e verde-ácido</b> sobre o preto. Os flashes vão em papel, do jeito de uma cartela de verdade.</p></div>
+    </div>
+    <div class="cores revela"><span class="cor"><i style="background:#0b0a0c"></i>Tinta</span><span class="cor"><i style="background:#ff3ea5"></i>Magenta</span><span class="cor"><i style="background:#20d4ea"></i>Ciano</span><span class="cor"><i style="background:#d4ff3b"></i>Ácido</span><span class="cor"><i style="background:#efe7d6"></i>Papel</span>
+      <span class="cor"><i style="background:#8fb35a"></i>Serra</span><span class="cor"><i style="background:#ffb02e"></i>POA</span><span class="cor"><i style="background:#20d4ea"></i>Litoral SC</span></div>
+  </section>
+
+  <div class="linha"></div>
+  <section class="sec">
+    <div class="sec-cab revela"><p class="kicker">Parte 1 · o que o cliente vê</p><h2>O site</h2><p>O cliente entra, brinca, escolhe e manda a ideia certinha. Tu recebe tudo organizado, sem 40 mensagens no direct.</p></div>
+    <div class="bloco revela"><div class="telas"><img class="pc" src="apresentacao/telas/pc-site.jpg" alt="Capa do site" loading="lazy"><img class="fone fone-sobre" src="apresentacao/telas/cel-site.jpg" alt="Capa no celular" loading="lazy"></div>
+      <div class="txt"><p class="kicker">A capa</p><h3>O A se desenha sozinho</h3><p>Teu nome entra em spray e a aquarela fica se mexendo no fundo.</p><ul><li><b>Dá pra rabiscar na tela</b>: o traço some aos poucos e, segurando o clique, toca o zumbido da máquina.</li><li>Mostra <b>onde tu tá hoje</b> e a próxima parada.</li></ul></div></div>
+    <div class="bloco inv revela"><div class="txt"><p class="kicker">A rota</p><h3>Onde o caracol tá</h3><p>Sem endereço fixo, o que importa é <b>quando tu passa na cidade do cliente</b>.</p><ul><li>Mapa da Serra, POA e Litoral: tocou na região, o caracol anda pela estrada até lá.</li><li>Calendário pintado por região e a <b>taxa de deslocamento</b> de cada lugar.</li></ul></div>
+      <div class="telas"><img class="pc" src="apresentacao/telas/pc-rota.jpg" alt="Rota no site" loading="lazy"></div></div>
+    <div class="bloco revela"><div class="telas"><img class="pc" src="apresentacao/telas/pc-flashes.jpg" alt="Cartela de flashes" loading="lazy"></div>
+      <div class="txt"><p class="kicker">Os flashes</p><h3>Escolhe, descola, tatua</h3><p>A cartela de papel com fita adesiva. Clicou, <b>o flash descola</b> e voa pro pedido.</p><ul><li>Preço fechado e marca de <b>"único"</b>: tatuou, sai da cartela.</li><li>Flash já tatuado aparece carimbado; se tem pedido rolando, avisa <b>"tem gente de olho"</b>.</li></ul></div></div>
+    <div class="bloco inv revela"><div class="txt"><p class="kicker">O pedido</p><h3>A ideia chega pronta</h3><p>Em poucos passos, o cliente conta tudo o que tu precisa pra orçar:</p><ul><li><b>Onde no corpo</b>, tocando num boneco de frente e de costas.</li><li>Tamanho numa régua ("um palmo", "o antebraço inteiro"), estilo e cor, com <b>a estimativa mudando na hora</b>.</li><li>A ideia, fotos de referência, a cidade e <b>os dias em que tu vai estar lá</b>.</li></ul></div>
+      <div class="telas par"><img class="fone" src="apresentacao/telas/cel-corpo.jpg" alt="Escolha do lugar no corpo" loading="lazy"><img class="fone" src="apresentacao/telas/cel-onde.jpg" alt="Escolha da região e dos dias" loading="lazy"></div></div>
+    <div class="bloco revela"><div class="telas"><img class="pc" src="apresentacao/telas/pc-tamanho.jpg" alt="Tamanho, estilo e estimativa" loading="lazy"><img class="fone fone-sobre" src="apresentacao/telas/cel-minha.jpg" alt="Minha tattoo" loading="lazy"></div>
+      <div class="txt"><p class="kicker">Depois da agulha</p><h3>Minha tattoo</h3><p>O cliente põe o WhatsApp e vê <b>em que fase tá a cicatrização</b> e o que fazer hoje, do dia 0 ao dia 30.</p><ul><li>Menos "Japa, tá normal descascar?" no teu celular.</li><li>Lembra do <b>retoque grátis</b> e da próxima sessão.</li></ul></div></div>
+  </section>
+
+  <div class="linha"></div>
+  <section class="sec">
+    <div class="sec-cab revela"><p class="kicker">Parte 2 · só pra ti</p><h2>O painel</h2><p>Teu estúdio de bolso: no celular ou no computador. Abre com "Ligar a máquina", o A sendo tatuado na tela, e entre as telas escorre uma cortina de tinta.</p></div>
+    <div class="bloco revela"><div class="telas"><img class="pc" src="apresentacao/telas/pc-role.jpg" alt="Rolê, o dia de hoje" loading="lazy"><img class="fone fone-sobre" src="apresentacao/telas/cel-role.jpg" alt="Rolê no celular" loading="lazy"></div>
+      <div class="txt"><p class="kicker">Rolê · hoje</p><h3>O teu dia numa olhada</h3><ul><li><b>Linha do dia</b> com os km entre um cliente e outro e o caracol andando na hora certa.</li><li>Próximo atendimento com <b>alerta de alergia</b> ("leva as luvas nitrílicas!"), "tô chegando" e o mapa.</li><li><b>A meta do mês em pedras empilhadas</b>: cada pedra é 10%.</li></ul></div></div>
+    <div class="bloco inv revela"><div class="txt"><p class="kicker">Rota · agenda</p><h3>Planeja a viagem com um pincel</h3><p>Pega o pincel "Litoral SC" e <b>pinta a semana</b> no calendário. O site já mostra pros clientes de lá.</p></div>
+      <div class="telas"><img class="pc" src="apresentacao/telas/pc-rota-painel.jpg" alt="Rota no painel" loading="lazy"></div></div>
+    <div class="bloco revela"><div class="telas"><img class="pc" src="apresentacao/telas/pc-rascunhos.jpg" alt="Quadro de pedidos" loading="lazy"><img class="fone fone-sobre" src="apresentacao/telas/cel-rascunhos.jpg" alt="Pedidos no celular" loading="lazy"></div>
+      <div class="txt"><p class="kicker">Rascunhos · pedidos</p><h3>Do "chegou" ao "tatuado"</h3><p>Um quadro de arrastar: <b>Chegou → Orçado → Sinal pago → Agendado → Tatuado</b>.</p><ul><li>Arrastou pra "Orçado": a <b>mensagem do orçamento já vem pronta</b>, com valor, sinal e dias.</li><li>Marcar a sessão já sugere <b>os dias que o cliente pediu</b>.</li><li>Finalizou: cobra, carimba <b>TATUADO!</b> e manda os cuidados do dia 0.</li></ul></div></div>
+    <div class="bloco inv revela"><div class="txt"><p class="kicker">Galera · clientes</p><h3>Cada pele, um mapa</h3><ul><li>A ficha mostra <b>o boneco com todas as tattoos que tu fez</b> na pessoa.</li><li>Ficha de saúde e <b>termo assinado com o dedo</b> na tela do celular, ali na hora.</li><li>Histórico, quanto já gastou e como a pessoa gosta.</li></ul></div>
+      <div class="telas"><img class="pc" src="apresentacao/telas/pc-ficha.jpg" alt="Ficha do cliente" loading="lazy"></div></div>
+    <div class="bloco revela"><div class="telas"><img class="story" src="apresentacao/telas/story.jpg" alt="Story da cartela gerado pelo painel" loading="lazy"></div>
+      <div class="txt"><p class="kicker">Flash Sheet</p><h3>O story sai pronto</h3><p>Tu controla a cartela (livre, reservado, tatuado) e com um toque o painel gera <b>o story do Instagram</b> com os flashes disponíveis e as próximas paradas. Essa imagem do lado saiu direto do sistema.</p></div></div>
+    <div class="bloco inv revela"><div class="txt"><p class="kicker">Corre · grana</p><h3>A viagem valeu?</h3><p>O que entrou, o que saiu e o que sobrou. E a pergunta que só quem viaja pra tatuar faz: <b>a ida pra Floripa se pagou</b>, depois de gasolina, pedágio, hospedagem e rango?</p></div>
+      <div class="telas"><img class="pc" src="apresentacao/telas/pc-corre.jpg" alt="Corre, o dinheiro" loading="lazy"></div></div>
+    <div class="galeria revela">
+      <figure><img src="apresentacao/telas/pc-mochila.jpg" alt="Mochila" loading="lazy"><figcaption>Mochila: o checklist antes de sair (e o carimbo "MOCHILA PRONTA")</figcaption></figure>
+      <figure><img src="apresentacao/telas/pc-cicatriza.jpg" alt="Cicatriza" loading="lazy"><figcaption>Cicatriza: a mensagem de cuidado certa pra cada dia</figcaption></figure>
+      <figure><img src="apresentacao/telas/pc-pedido.jpg" alt="Pedido aberto" loading="lazy"><figcaption>O pedido aberto: corpo, ideia, valor e próximos passos</figcaption></figure>
+    </div>
+  </section>
+
+  <div class="linha"></div>
+  <section class="sec">
+    <div class="sec-cab revela"><p class="kicker">Testa tu mesmo</p><h2>Bora brincar</h2><p>Funciona no celular e no computador. Use o mesmo aparelho pro site e pro painel: na demonstração, os dados ficam no navegador.</p></div>
+    <div class="testa">
+      <div class="passo revela"><h3>Manda uma ideia</h3><p>Abre o site, toca em "Quero uma tattoo", escolhe o lugar no corpo e vai até o fim.</p><a class="bt forte peq" href="index.html">Abrir o site</a></div>
+      <div class="passo revela"><h3>Vê chegar no painel</h3><p>Abre o painel: o pedido tá lá em "Rascunhos". Arrasta até "Tatuado".</p><a class="bt peq" href="painel.html#rascunhos">Abrir o painel</a></div>
+      <div class="passo revela"><h3>Pinta a rota</h3><p>Em "Rota", pega o pincel "Litoral SC" e pinta uns dias. Volta no site e vê o calendário.</p><a class="bt peq" href="painel.html#rota">Abrir a rota</a></div>
+    </div>
+    <p class="aviso">Na demonstração o WhatsApp só mostra a mensagem pronta (os telefones são inventados). Bagunçou? Painel → Bancada → Recomeçar → Voltar ao exemplo.</p>
+  </section>
+
+  <div class="linha"></div>
+  <section class="sec">
+    <div class="sec-cab revela"><p class="kicker">Pra virar de verdade</p><h2>O que falta de ti</h2><p>Tudo aqui é exemplo. Com essas respostas, o sistema fica com os teus dados.</p></div>
+    <div class="falta">
+      <div class="revela"><b>Regiões e cidades</b><span>Quais cidades entram na Serra, em POA e no Litoral? Falta alguma?</span></div>
+      <div class="revela"><b>Deslocamento</b><span>Cobra por km, taxa fixa por região, ou já embute no preço?</span></div>
+      <div class="revela"><b>Preço e sinal</b><span>Qual o mínimo? Quanto de sinal? A estimativa pode aparecer no site?</span></div>
+      <div class="revela"><b>Flashes de verdade</b><span>Fotos boas dos teus desenhos, preços e quais são únicos.</span></div>
+      <div class="revela"><b>Portfólio</b><span>Quais trabalhos podem aparecer no site (com o OK dos clientes)?</span></div>
+      <div class="revela"><b>O teu A original</b><span>O arquivo da marca em alta, pra trocar o desenho provisório.</span></div>
+      <div class="revela"><b>Customização</b><span>Quais peças tu faz e a faixa de preço de cada uma.</span></div>
+      <div class="revela"><b>Os nomes das telas</b><span>Rolê, Rota, Rascunhos, Galera, Corre, Cicatriza… curtiu ou prefere nomes comuns?</span></div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="qr revela"><img src="apresentacao/qr-apresentacao.png" alt="QR code desta página"><div><h3>Abre no celular 🐌</h3><p>Aponta a câmera pro código: abre esta página no teu celular.</p><code>toobyq.github.io/japa-demo/apresentacao.html</code></div></div>
+  </section>
+
+  <footer class="rodape"><div class="a" id="logoPe"></div><p>Japa Oneightwo · demonstração feita sob medida · nada aqui é oficial ainda</p></footer>
+</main>
+<script src="js/nucleo.js"></script>
+<script src="js/arte.js"></script>
+<script>
+$('#logo').innerHTML = logoSVG({ anima: true });
+$('#logoPe').innerHTML = logoSVG();
+$('#caracolCapa').innerHTML = caracolSVG({ anima: true });
+$('#simbCaracol').innerHTML = caracolSVG({ anima: true });
+$('#simbA').innerHTML = logoSVG({ cor: 'var(--mag)' });
+$('#simbFlash').innerHTML = flashSVG('caveira');
+$('#ligar').onclick = e => { const l = $('#logo'); l.innerHTML = logoSVG({ anima: true }); l.classList.add('liga'); Som.zumbido(2.1, .07);
+  setTimeout(() => { l.classList.remove('liga'); const r = l.getBoundingClientRect(); FX.respingo(r.left + r.width / 2, r.top + r.height / 2, ['#ff3ea5', '#20d4ea', '#d4ff3b', '#f2ede4'], 60); Som.carimbo(); }, 2050); };
+const obs = new IntersectionObserver(es => es.forEach(x => { if (x.isIntersecting) { x.target.classList.add('vis'); obs.unobserve(x.target); } }), { rootMargin: '0px 0px 8% 0px' });
+$$('.revela').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

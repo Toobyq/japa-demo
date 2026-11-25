@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Japa Oneightwo · tattoo a domicílio</title>
+<meta name="description" content="Tattoo a domicílio na Serra Gaúcha, em Porto Alegre e no litoral de Santa Catarina. Flashes, arte exclusiva e customização. O estúdio anda comigo.">
+<meta name="theme-color" content="#0b0a0c">
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🐌%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+<header class="topo" id="topo">
+  <a href="#inicio" class="marca" aria-label="Japa Oneightwo, início"><span class="marca-a"></span><span class="mao">Japa Oneightwo</span></a>
+  <nav class="menu" aria-label="Seções">
+    <a href="#rota">Rota</a><a href="#flashes">Flashes</a><a href="#estilos">Estilos</a><a href="#como">Como funciona</a><a href="#cuidados">Minha tattoo</a>
+  </nav>
+  <button class="bt forte peq" data-pedir>Quero tattoo</button>
+</header>
+
+<main>
+  <!-- capa -->
+  <section class="capa" id="inicio">
+    <div class="aquarela" aria-hidden="true"><i></i><i></i><i></i></div>
+    <canvas class="rabisco" aria-hidden="true"></canvas>
+    <div class="capa-miolo">
+      <div class="capa-logo"></div>
+      <h1 class="capa-nome"><span class="mao l1">Japa</span><span class="mao l2">Oneightwo</span></h1>
+      <p class="capa-sub">Tattoo a domicílio. <b>O estúdio anda comigo.</b></p>
+      <a href="#rota" class="onde-estou" id="ondeEstou"></a>
+      <div class="capa-bts"><button class="bt tinta" data-pedir>Quero uma tattoo</button><a class="bt leve" href="#flashes">Pegar um flash</a></div>
+    </div>
+    <p class="dica-rabisco mao" aria-hidden="true">← rabisca aqui</p>
+    <div class="trilha" aria-hidden="true"><div class="anda"></div></div>
+  </section>
+
+  <!-- faixa -->
+  <div class="faixa" aria-hidden="true"><div class="faixa-rola"></div></div>
+
+  <!-- rota -->
+  <section class="sec" id="rota">
+    <div class="sec-cab"><p class="sten kicker">Serra · POA · Litoral SC</p><h2 class="mao">Onde o caracol tá</h2>
+      <p class="suave">Sem estúdio fixo: o Japa vai até você com a casa nas costas. Escolhe a tua região e vê quando ele passa por aí.</p></div>
+    <div class="rota-grade">
+      <div class="mapa" id="mapa"></div>
+      <div class="regioes" id="regioes"></div>
+    </div>
+    <div class="calendario-rota" id="calRota"></div>
+  </section>
+
+  <!-- flashes -->
+  <section class="sec papel" id="flashes">
+    <div class="sec-cab"><p class="sten kicker">Cartela de flashes</p><h2 class="mao">Escolhe, descola, tatua.</h2>
+      <p>Desenhos prontos com preço fechado. Os marcados como <b>único</b> vão pra uma pele só: tatuou, saiu da cartela.</p></div>
+    <div class="cartela" id="cartela"></div>
+  </section>
+
+  <!-- estilos -->
+  <section class="sec" id="estilos">
+    <div class="sec-cab"><p class="sten kicker">Versátil de verdade</p><h2 class="mao">Ele tatua de tudo</h2>
+      <p class="suave">Do traço fino ao fechamento de costas. Premiado em old school em convenção de tattoo.</p></div>
+    <div class="estilos" id="listaEstilos"></div>
+    <p class="nota-fotos suave">As fotos dos trabalhos entram aqui quando o Japa escolher quais mostrar.</p>
+  </section>
+
+  <!-- como funciona -->
+  <section class="sec como" id="como">
+    <div class="sec-cab"><p class="sten kicker">Tattoo a domicílio</p><h2 class="mao">Como funciona</h2></div>
+    <ol class="passos" id="passos">
+      <li><span class="n num">01</span><h3 class="mao">Manda a ideia</h3><p>Aqui no site: onde no corpo, tamanho, estilo e referências. Já sai com uma estimativa.</p></li>
+      <li><span class="n num">02</span><h3 class="mao">Orçamento no WhatsApp</h3><p>O Japa olha com carinho e responde com o valor fechado e as datas em que ele tá na tua região.</p></li>
+      <li><span class="n num">03</span><h3 class="mao">Sinal garante a data</h3><p>Um sinal no Pix segura teu horário e já abate do valor da tattoo.</p></li>
+      <li><span class="n num">04</span><h3 class="mao">O estúdio chega até você</h3><p>Maca, luz, máquina e tudo descartável. Tu só separa um cantinho com mesa e tomada.</p></li>
+    </ol>
+    <div class="bio">
+      <h3 class="sten">Biossegurança na mochila</h3>
+      <ul><li>Agulhas e cartuchos descartáveis, abertos na tua frente</li><li>Barreiras em tudo que encosta</li><li>Lençol de maca descartável</li><li>Lixo infectante e perfurocortante levados embora</li><li>Ficha de saúde e termo assinados no celular</li></ul>
+    </div>
+    <div class="trilho-como" aria-hidden="true"><div class="caracol-como"></div></div>
+  </section>
+
+  <!-- oficina -->
+  <section class="sec oficina" id="oficina">
+    <div class="oficina-txt">
+      <p class="sten kicker">Não é só pele</p><h2 class="mao">Oficina de customização</h2>
+      <p class="suave">Jaqueta, tênis, boné, tela, peça com a cara do teu pet. Arte exclusiva pintada à mão, do jeito que só ele faz.</p>
+      <div class="chips" id="pecas"></div>
+      <button class="bt forte" data-pedir="customizacao">Customizar uma peça</button>
+    </div>
+    <div class="oficina-arte" aria-hidden="true"></div>
+  </section>
+
+  <!-- minha tattoo -->
+  <section class="sec" id="cuidados">
+    <div class="sec-cab"><p class="sten kicker">Depois da agulha</p><h2 class="mao">Minha tattoo</h2>
+      <p class="suave">Coloca teu WhatsApp e vê em que fase tá a cicatrização e o que fazer hoje.</p></div>
+    <form class="consulta" id="consulta"><input id="consFone" inputmode="tel" placeholder="(54) 99999-9999" aria-label="Teu WhatsApp"><button class="bt forte">Ver</button></form>
+    <div id="minhaTattoo"></div>
+    <div class="cuidados" id="listaCuidados"></div>
+  </section>
+
+  <!-- eventos -->
+  <section class="sec" id="eventos">
+    <div class="sec-cab"><p class="sten kicker">Agenda de rolê</p><h2 class="mao">Eventos</h2></div>
+    <div class="eventos" id="listaEventos"></div>
+  </section>
+
+  <footer class="rodape">
+    <div class="rodape-a"></div>
+    <h2 class="mao">Bora riscar?</h2>
+    <div class="capa-bts"><button class="bt tinta" data-pedir>Mandar minha ideia</button><button class="bt" data-whats><svg class="ic" aria-hidden="true"><use href="#i-whats"/></svg>WhatsApp</button><a class="bt" id="linkInsta" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-insta"/></svg>Instagram</a></div>
+    <p class="suave peq">Demonstração com dados de exemplo · <a href="painel.html">Área do Japa</a></p>
+  </footer>
+</main>
+
+<!-- prancheta: o pedido em passos -->
+<div class="prancheta" id="prancheta" hidden role="dialog" aria-modal="true" aria-labelledby="prTitulo">
+  <div class="pr-topo">
+    <button class="bt leve peq" id="prVoltar"><svg class="ic" aria-hidden="true"><use href="#i-volta"/></svg>Voltar</button>
+    <div class="pr-trilha" aria-hidden="true"><svg viewBox="0 0 600 30" preserveAspectRatio="none"><path id="prLinha" d="M4 18 C 80 6, 140 26, 220 15 S 380 6, 460 18 S 560 22, 596 14"/></svg><div class="pr-caracol"></div></div>
+    <button class="fechar" id="prFechar" aria-label="Fechar"><svg class="ic" aria-hidden="true"><use href="#i-x"/></svg></button>
+  </div>
+  <div class="pr-corpo"><h2 class="mao" id="prTitulo"></h2><p class="suave" id="prSub"></p><div id="prPasso"></div></div>
+  <div class="pr-pe"><div class="pr-est" id="prEst"></div><button class="bt forte" id="prSeguir">Seguir</button></div>
+</div>
+
+<script src="js/nucleo.js"></script>
+<script src="js/arte.js"></script>
+<script src="js/exemplo.js"></script>
+<script src="js/site.js"></script>
+</body>
+</html>
